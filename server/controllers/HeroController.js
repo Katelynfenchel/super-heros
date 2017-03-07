@@ -13,14 +13,14 @@ router.get('/hero', function(request, response){
 	
 });
 
-router.post('/hero', function(request, response) {
-	var hero = new Hero({name: request.body.name,
-								movie: request.body.movie,
-								power: request.body.power,
-								height: parseInt(request.body.height)});
+router.post('/hero', function(req, res) {
+	var heros = new Hero({name: req.body.name,
+								movie: req.body.movie,
+								power: req.body.power,
+								height: parseInt(req.body.height)});
 
-	hero.save();
-	resquest.redirect('/hero');
+	heros.save();
+	res.redirect('/hero');
 });
 
 //export router to app.js file
