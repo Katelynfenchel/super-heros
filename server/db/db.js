@@ -1,5 +1,5 @@
 var mongoose= require('mongoose');
-var connectionString = 'mongodb://localhost/villain';
+var connectionString = 'mongodb://localhost/batman';
 
 //connection to the database
 mongoose.connect(connectionString);
@@ -9,7 +9,7 @@ mongoose.connection.on('connected', function(){
 
 });
 
-mongoose.connection.on('error', function(){
+mongoose.connection.on('error', function(error){
 	console.log("MongoDB error" + error);
 
 });

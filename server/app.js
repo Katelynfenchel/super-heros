@@ -6,27 +6,24 @@ var path = require('path');
 var mongoose = require('mongoose');
 
 require('./db/db');
-var Villain = require('./models/Villain');
+
+require('./models/Villain');
+require('./models/Hero');
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-//hardcoding the view
-var villains = [{name: "Penguin",
-				 movie: "Batman Returns", 
-				 power: "Criminal", 
-				 height: 53},
-				 {name: "Joker", movie: "Dark Knight", power: "Tricks", height: 60}]
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({extended: true}));
+var VillainController = require('./controllers/VillainController');
+var HeroController = require('./controllers/HeroController');
 
-app.get('/', function(request, response){
-	response.render('home', {villainsArray: villains});
-});
-
-
+//any requests to the /villains are going to be sent to the VillainController
+app.use('/', VillainController);
+app.use('/', HeroController);
 
 
 

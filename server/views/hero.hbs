@@ -1,6 +1,6 @@
-<h1> Villains! </h1>
+<h1> Heros! </h1>
 
-<form action= "/villains" method= "POST">
+<form action= "/hero" method= "POST">
 	<input type= "text" placeholder="Name" name="name"/>
 	<input type= "text" placeholder="Movie" name= "movie"/>
 	<input type= "text" placeholder="Super Power" name ="power"/>
@@ -9,7 +9,7 @@
 </form>
 
 <table border= "1">
-{{#each villainsArray}}
+{{#each herosArray}}
 		<tr>
 			<td>{{this.name}}</td>
 			<td> {{this.movie}}</td>
@@ -20,4 +20,3 @@
 		</tr>
 {{/each}}
 </table>
-
