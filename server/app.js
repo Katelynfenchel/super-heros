@@ -22,8 +22,8 @@ var VillainController = require('./controllers/VillainController');
 var HeroController = require('./controllers/HeroController');
 
 //any requests to the /villains are going to be sent to the VillainController
-app.use('/', VillainController);
-app.use('/', HeroController);
+app.use('/villains', VillainController);
+app.use('/hero', HeroController);
 
 
 
